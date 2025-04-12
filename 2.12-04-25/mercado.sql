@@ -90,3 +90,13 @@ select nome_produto, sum(valor_produto * qtd_produto) as valor_total_estoque fro
 
 select valor_produto, count(*) as quantidade_produtos from produto where valor_produto between 10.01 and 20.00 group by valor_produto;
 
+select * from produto;
+
+select * from produto where nome_produto like "F%";
+
+select * from produto where nome_produto like "%e";
+
+select * from produto where nome_produto like "%Arroz%";
+
+
+
