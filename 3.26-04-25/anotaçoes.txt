@@ -1,0 +1,6 @@
+Criar uma instancia do phpMyAdmin com Workbench
+
+- No Workbench adicionar uma nova instancia (clicar em +)
+- Porta 3306 e nomear como Xamp
+
+Ao entrar nessa instancia os mesmos bd's disponiveis no localhost/phpmyadmin estaram disponiveis no Workbench
