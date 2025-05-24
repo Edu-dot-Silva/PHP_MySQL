@@ -45,9 +45,12 @@
         <td><?php echo $linha['Email_pessoa']; ?></td>
         <td><?php echo $linha['Telefone_pessoa']; ?></td>
         <td>
-            <a href="">+</a>
-            <a href="">Editar</a>
+            <a href="ver.php?id=<?= $linha['Id_pessoa']; ?>">Ver</a>
+            <!-- ver pessoa pelo id -->
+            <a href="formulario_editar.php?id=<?= $linha['Id_pessoa'];?>">Editar</a>
+            <!-- editar pelo id de cada pessoa -->
             <a href="deletar.php?id=<?= $linha['Id_pessoa'];?>" onclick="return confirm('Tem certeza que deseja excluir esse registro?')">Excluir</a>
+            <!-- deletar pelo id de cada pessoa -->
         </td>
         </tr>
 
