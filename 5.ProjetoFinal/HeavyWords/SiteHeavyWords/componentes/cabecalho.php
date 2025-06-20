@@ -1,10 +1,13 @@
- <header>
+<header>
+        <div class="login">
+            <a href="/PHP_MySQL/5.ProjetoFinal/HeavyWords/SiteHeavyWords/pages/cadastro.php">Cadastro/Login</a>
+        </div>
         <div class="logo">
-            <img src="../HeavyWords/assets/img/logo.png" alt="Logo Heavy Words" class="logo-img">
+            <img src="/PHP_MySQL/5.ProjetoFinal/HeavyWords/SiteHeavyWords/assets/img/logo.png" alt="Logo Heavy Words" class="logo-img">
         </div>
         <div class="menu">
             <span class="itens-menu item-home">
-                <a href="../index.php"><span class="menu-text">Home</span></a>
+                <a href="/PHP_MySQL/5.ProjetoFinal/HeavyWords/SiteHeavyWords/pages/index.php"><span class="menu-text">Home</span></a>
                 <span class="menu-icon">
                 </span>
             </span>
@@ -24,9 +27,10 @@
                 </span>
             </span>
             <span class="itens-menu item-sobrenos">
-                <a href="../pages/sobrenos.php"><span class="menu-text">Sobre Nós</span></a>
+                <a href="/PHP_MySQL/5.ProjetoFinal/HeavyWords/SiteHeavyWords/pages/sobrenos.php"><span class="menu-text">Sobre Nós</span></a>
                 <span class="menu-icon">
                 </span>
             </span>
         </div>
+
     </header>

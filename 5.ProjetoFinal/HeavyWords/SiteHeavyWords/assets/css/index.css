@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --primeira_cor: #fcfcfc;
+    /* Branco */
+    --segunda_cor: #000000;
+    /* Preto */
+    --terceira_cor: #1e1e1e;
+    /* Preto Light */
+    --quarta_cor: #3c3c3c;
+    /* Dark Gray */
+    --quinta_cor: #5b5b5b;
+    /* Light Gray */
+}
+
+body {
+    /* background-color: var(--primeira_cor); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Open Sans", sans-serif;
+    color: var(--segunda_cor);
+}
+
+header {
+    background-color: var(--primeira_cor);
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 200px;
+    height: 200px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 56px;
+    align-items: flex-end;
+    background-color: var(--primeira_cor);
+}
+
+.itens-menu {
+    margin: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+    padding-bottom: 4px;
+    transition: all 0.1s ease-in-out;
+    transform-origin: center bottom;
+    display: inline-flex;
+    align-items: flex-end;
+    height: 36px;
+}
+
+.itens-menu:hover{
+    border-bottom: 2px solid var(--segunda_cor);
+    transform: scale(0.8);
+}
+
+.itens-menu a {
+    text-decoration: none;
+    color: var(--segunda_cor);
+}
+
+main{
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+    background-color: var(--primeira_cor);
+}
+
+.vendidos_content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 36px;
+}
+
+.item_mais_vendido{
+    width: 200px;
+    height: 300px;
+    border: 2px solid black;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.item_mais_vendido img {
+    width: 100%;
+    height: 200px;
+}
+
+.item_mais_vendido p{
+    font-size: 16px;
+    margin: 8px;
+}
+
+.item_mais_vendido button {
+    width: 70%;
+    height: 40px;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border-radius: 24px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.item_mais_vendido button:hover {
+    background-color: var(--quarta_cor);
+    color: var(--primeira_cor);
+    transform: scale(0.9);
+}
+
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.rodape {
+    width: 100%;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 64px;
+    margin: 0;
+}
+
+
+.coluna1 img{
+    width: 200px;
+}
+
+.login{
+    position: absolute;
+    top: 20px;
+    right: 12px;
+    background: none;
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.sobre-nos-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: justify;
+    padding: 34px;
+}
+
+.sobre-nos-content img {
+    width: 50%;
+    height: 50%;
+    margin: 16px;
+    border-radius: 16px;
+}
+.sobre-nos-texto1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: justify;
+}
+.sobre-nos-texto2{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cadastro-login-container{
+    width: 80%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.cadastro-login-container h2{
+    display: block;
+    margin: 12px;
+}
+.cadastro-login-container label{
+    display: block;
+    margin: 8px;
+}
+
+.cadastro-login-container input{
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid var(--segunda_cor);
+}
+.cadastro-login-container button{
+    width: 70%;
+    height: 40px;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border-radius: 24px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    margin-top: 8px;
+    font-size: 16px;
+    align-self: center;
+}
+
+.cadastro-login-container button:hover {
+    background-color: var(--quarta_cor);
+    color: var(--primeira_cor);
+    transform: scale(0.9);
+}
+
+.cadastro-login-container .login-box{
+    padding: 24px;
+}
+
+.cadastro-login-container .cadastro-box{
+    border-left: 2px solid var(--segunda_cor);
+    padding: 24px;
+}
