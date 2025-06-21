@@ -195,64 +195,6 @@ Capa de celular “Linkin Park Logo”
 Caderno “Heavy Words – Metallica Edition” (exclusivo da loja)
 
 admin
-no de admin voce pode cadastrar o usuarios que terao acesso a esse sistema admin admin, podera cadastrar produtos para ser visto no site de clientes e tera um controle de estoque (a ideia é um dashboard mas nao oficial ainda)
-
-
-CREATE TABLE usuarios_admin (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha_hash VARCHAR(255) NOT NULL,
-    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-categorias
-sql
-Copiar
-Editar
-CREATE TABLE categorias (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL
-);
-Exemplos de categorias:
-
-Livros
-
-Vinis e CDs
-
-Acessórios
-
-produtos
-sql
-Copiar
-Editar
-CREATE TABLE produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(150) NOT NULL,
-    descricao TEXT,
-    preco DECIMAL(10, 2) NOT NULL,
-    estoque INT NOT NULL DEFAULT 0,
-    imagem_url VARCHAR(255),
-    categoria_id INT,
-    banda VARCHAR(100),
-    tipo VARCHAR(50), -- Ex: Livro, Vinil, CD, Camiseta
-    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
-);
-🛒 Para o Site do Cliente (Catálogo e Carrinho Simulado)
-clientes
-sql
-Copiar
-Editar
-carrinho
-sql
-Copiar
-Editar
-CREATE TABLE carrinho (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    cliente_id INT NOT NULL,
-    produto_id INT NOT NULL,
-    quantidade INT NOT NULL DEFAULT 1,
-    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (produto_id) REFERENCES produtos(id)
-);
+no de admin voce pode cadastrar o usuarios que terao acesso a esse sistema admin admin
+podera cadastrar produtos para ser visto no site de clientes
+tera um controle de estoque (a ideia é um dashboard mas nao oficial ainda)
