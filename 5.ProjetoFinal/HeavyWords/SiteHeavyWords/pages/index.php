@@ -67,7 +67,8 @@ if (isset($_SESSION['cliente_id'])) {
     <h2>Promoção</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px;">
         <?php
-        $promocoes = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND preco <= 50");
+        // Altere para pegar produtos com preco <= 30
+        $promocoes = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND preco <= 30");
         $produtosPromo = [];
         if ($promocoes && $promocoes->num_rows > 0) {
             while($p = $promocoes->fetch_assoc()) {
@@ -91,6 +92,29 @@ if (isset($_SESSION['cliente_id'])) {
         } else { ?>
             <p>Nenhum produto em promoção.</p>
         <?php } ?>
+    </div>
+    <!-- Section Novidades -->
+    <h2 style="margin-top:32px;">Novidades</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px;">
+        <?php
+        $novidades = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 ORDER BY criado_em DESC, id DESC LIMIT 4");
+        if ($novidades && $novidades->num_rows > 0):
+            while($p = $novidades->fetch_assoc()): ?>
+                <div style="border:1px solid #ccc; padding:16px; width:200px; cursor:pointer;">
+                    <?php if (!empty($p['imagem_url'])): ?>
+                        <a href="paginaProduto.php?id=<?php echo $p['id']; ?>" style="text-decoration:none;color:inherit;">
+                        <img src="../../AdminHeavyWords/<?php echo $p['imagem_url']; ?>" alt="<?php echo htmlspecialchars($p['nome']); ?>" style="max-width:100%;max-height:120px;display:block;margin-bottom:8px;">
+                        </a>
+                    <?php endif; ?>
+                    <h3><?php echo htmlspecialchars($p['nome']); ?></h3>
+                    <p>Preço: R$ <?php echo number_format($p['preco'], 2, ',', '.'); ?></p>
+                    <button type="button" onclick="window.location.href='<?php echo isset($_SESSION['cliente_id']) ? 'comprar.php?id=' . $p['id'] : 'loginCliente.php?add_carrinho=' . $p['id']; ?>'">Comprar</button>
+                    <button type="button" onclick="adicionarCarrinho(<?php echo $p['id']; ?>)">Adicionar ao carrinho</button>
+                </div>
+            <?php endwhile;
+        else: ?>
+            <p>Nenhum produto novo cadastrado.</p>
+        <?php endif; ?>
     </div>
 </body>
 </html>

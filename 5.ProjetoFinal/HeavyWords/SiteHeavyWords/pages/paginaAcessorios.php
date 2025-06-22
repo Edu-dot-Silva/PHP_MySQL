@@ -1,8 +1,44 @@
 <?php
 session_start();
 include_once '../backend/conexaoCliente.php';
-// Buscar produtos da categoria acessorio (ajuste o id da categoria conforme seu banco, ou use WHERE tipo = 'acessorio' se preferir)
-$acessorios = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND (tipo = 'acessorio' OR categoria_id = 4)");
+
+// Filtros dinâmicos
+$where = ["ativo = 1"];
+$params = [];
+$tipo_produto = 'acessorio';
+
+$where[] = "(tipo = ? OR categoria_id = 4)";
+$params[] = $tipo_produto;
+
+if (!empty($_GET['busca'])) {
+    $where[] = "nome LIKE ?";
+    $params[] = '%' . $_GET['busca'] . '%';
+}
+if (!empty($_GET['banda'])) {
+    $where[] = "banda = ?";
+    $params[] = $_GET['banda'];
+}
+$order = "id DESC";
+if (!empty($_GET['ordem']) && is_array($_GET['ordem'])) {
+    $ordens = [];
+    foreach ($_GET['ordem'] as $ordem) {
+        switch ($ordem) {
+            case 'preco_asc': $ordens[] = "preco ASC"; break;
+            case 'preco_desc': $ordens[] = "preco DESC"; break;
+            case 'nome_asc': $ordens[] = "nome ASC"; break;
+            case 'nome_desc': $ordens[] = "nome DESC"; break;
+        }
+    }
+    if ($ordens) $order = implode(', ', $ordens);
+}
+$sql = "SELECT id, nome, preco, imagem_url FROM produtos WHERE " . implode(' AND ', $where) . " ORDER BY $order";
+$stmt = $conn->prepare($sql);
+$types = str_repeat('s', count($params));
+if ($params) {
+    $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$acessorios = $stmt->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,6 +68,7 @@ $acessorios = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHE
     <?php include '../components/topoCliente.php'; ?>
     <?php include '../components/navBar.php'; ?>
     <h2>Acessórios</h2>
+    <?php include '../components/filtroCliente.php'; ?>
     <div style="display: flex; flex-wrap: wrap; gap: 24px;">
         <?php if ($acessorios && $acessorios->num_rows > 0): ?>
             <?php while($p = $acessorios->fetch_assoc()): ?>
@@ -53,4 +90,4 @@ $acessorios = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHE
     </div>
 </body>
 </html>
-<?php $conn->close(); ?>
+<?php $stmt->close(); $conn->close(); ?>

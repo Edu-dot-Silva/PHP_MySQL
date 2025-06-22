@@ -7,7 +7,8 @@ if ($catResult && $catResult->num_rows > 0) {
     $cat = $catResult->fetch_assoc();
     $idCd = $cat['id'];
 }
-$sql = "SELECT id, nome, descricao, preco, estoque, vendidos, banda, tipo, ativo, criado_em FROM produtos WHERE categoria_id = $idCd ORDER BY id ASC";
+// Altere ORDER BY id ASC para ORDER BY id DESC
+$sql = "SELECT id, nome, descricao, preco, estoque, vendidos, banda, tipo, ativo, criado_em FROM produtos WHERE categoria_id = $idCd ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>

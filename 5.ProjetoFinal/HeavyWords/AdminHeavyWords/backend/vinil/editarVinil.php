@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['imagem_url']) && $_FILES['imagem_url']['error'] === UPLOAD_ERR_OK) {
         $ext = pathinfo($_FILES['imagem_url']['name'], PATHINFO_EXTENSION);
         $nome_arquivo = uniqid('produto_') . '.' . $ext;
-        $destino = '../../assets/img/produtos/' . $nome_arquivo;
+        $destino = '../../assets/img/produtos/vinil' . $nome_arquivo;
         if (move_uploaded_file($_FILES['imagem_url']['tmp_name'], $destino)) {
-            $imagem_url = 'assets/img/produtos/' . $nome_arquivo;
+            $imagem_url = 'assets/img/produtos/vinil' . $nome_arquivo;
         } else {
             $msg = 'Erro ao fazer upload da imagem.';
         }

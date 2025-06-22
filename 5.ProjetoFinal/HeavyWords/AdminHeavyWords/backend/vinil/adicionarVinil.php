@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['imagem_url']) && $_FILES['imagem_url']['error'] === UPLOAD_ERR_OK) {
         $ext = pathinfo($_FILES['imagem_url']['name'], PATHINFO_EXTENSION);
         $nome_arquivo = uniqid('produto_') . '.' . $ext;
-        $destino = '../../assets/img/produtos/' . $nome_arquivo;
+        $destino = '../../assets/img/produtos/vinil/' . $nome_arquivo;
         if (move_uploaded_file($_FILES['imagem_url']['tmp_name'], $destino)) {
-            $imagem_url = 'assets/img/produtos/' . $nome_arquivo;
+            $imagem_url = 'assets/img/produtos/vinil/' . $nome_arquivo;
         } else {
             $msg = 'Erro ao fazer upload da imagem.';
         }
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nome && $preco && $estoque && $tipo && $categoria_id && !$msg) {
         $sql = "INSERT INTO produtos (nome, descricao, preco, estoque, banda, tipo, categoria_id, imagem_url, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssdisissi', $nome, $descricao, $preco, $estoque, $banda, $tipo, $categoria_id, $imagem_url, $ativo);
+        $stmt->bind_param('ssdissssi', $nome, $descricao, $preco, $estoque, $banda, $tipo, $categoria_id, $imagem_url, $ativo);
         if ($stmt->execute()) {
             $msg = 'Produto cadastrado com sucesso!';
             header('Location: ../../pages/listaVinil.php');
