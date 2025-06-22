@@ -1,9 +1,3 @@
-Home
-Livros
-Vinis e cds
-Acessorios
-Sobre Nos
-
 Sobre Nos
 A Heavy Words é muito mais que uma livraria: é um santuário para quem vive o rock de forma visceral. Nascemos da paixão por riffs pesados, letras intensas e histórias que moldaram gerações — seja nos palcos caóticos do metal extremo, nas linhas sombrias do industrial, ou na atitude crua do punk e do nu-metal. Aqui, cada livro, vinil, CD ou acessório carrega o peso de nomes como Meshuggah, Sepultura, Slipknot, Ghost, Ratos de Porão, Korn, Behemoth e tantos outros que desafiaram o silêncio com barulho, alma e revolta.
 
@@ -194,7 +188,4 @@ Capa de celular “Linkin Park Logo”
 
 Caderno “Heavy Words – Metallica Edition” (exclusivo da loja)
 
-admin
-no de admin voce pode cadastrar o usuarios que terao acesso a esse sistema admin admin
-podera cadastrar produtos para ser visto no site de clientes
-tera um controle de estoque (a ideia é um dashboard mas nao oficial ainda)
+exportar o csv da tabela toda no administrativo
