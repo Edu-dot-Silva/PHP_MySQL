@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --primeira_cor: #fcfcfc;
+    --segunda_cor: #000000;
+    --terceira_cor: #1e1e1e;
+    --quarta_cor: #3c3c3c;
+    --quinta_cor: #5b5b5b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--primeira_cor);
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+}
+
+.section_mais_vendidos {
+    text-align: center;
+    padding: 12px;
+}
+
+.section_mais_vendidos h2 {
+    margin-top: 8px;
+}
+
+.section_mais_vendidos .grid {
+    margin: 8px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 900px;
+    justify-items: center;
+    align-items: center;
+}
+
+.section_promocao {
+    text-align: center;
+    padding: 12px;
+}
+
+.section_promocao .grid-promocao {
+    margin: 8px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 900px;
+    justify-items: center;
+    align-items: center;
+}
+
+.section_novidades {
+    text-align: center;
+    padding: 12px;
+}
+
+.section_novidades .grid-novidades {
+    margin: 8px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    max-width: 900px;
+    justify-items: center;
+    align-items: center;
+}
+
+.section_loja_fisica {
+    padding: 12px;
+}
+
+.mapa_loja_fisica {
+    width: 60%;
+    height: 500px;
+    border: none;
+    border-radius: 24px;
+
+}
+
+.card_produto {
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    min-height: 300px; /* Garante altura mínima igual para todos */
+}
+
+.card_produto_imagem {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card_produto_imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: multiply;
+}
+
+.card_produto_nome {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4px;
+    min-height: 48px; /* Garante espaço para nomes maiores */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_produto_preco {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px;
+}
+
+.card_btns button {
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    font-family: "Quicksand", sans-serif;
+}
+
+.card_btns button:hover {
+    transform: scale(1.1);
+}
+
+.card_btns .btn_comprar {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+.card_btns .btn_comprar:hover {
+    background-color: #219150;
+    color: #fff;
+}
+
+.card_btns .btn_adicionar {
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+}
+
+.card_btns .btn_adicionar:hover {
+    background-color: var(--quinta_cor);
+    color: var(--primeira_cor);
+}
+
+.produtos_container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.produtos_filtro {
+    min-width: 260px;
+    max-width: 320px;
+    flex: 0 0 260px;
+}
+
+.section_produtos {
+    flex: 1;
+    width: 100%;
+    background: none;
+    padding: 0;
+}
+
+.grid_produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.paginacao_produtos {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn_paginacao {
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: var(--primeira_cor);
+    color: var(--segunda_cor);
+    border: 1px solid var(--quinta_cor);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    font-family: "Quicksand", sans-serif;
+}
+
+.btn_paginacao:hover {
+    background: var(--quinta_cor);
+    color: var(--primeira_cor);
+    transform: scale(1.08);
+}
+
+.btn_paginacao.ativo {
+    background: var(--terceira_cor);
+    color: var(--primeira_cor);
+    border: 1px solid var(--terceira_cor);
+    cursor: default;
+    pointer-events: none;
+}

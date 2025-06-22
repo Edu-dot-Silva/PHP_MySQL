@@ -66,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrar'])) {
     <title>Login/Cadastro Cliente</title>
 </head>
 <body>
+    <?php include_once '../components/topoCliente.php'; ?>
     <h2>Login</h2>
     <?php if ($msg_login) echo '<p style="color:red">' . $msg_login . '</p>'; ?>
     <form method="POST">

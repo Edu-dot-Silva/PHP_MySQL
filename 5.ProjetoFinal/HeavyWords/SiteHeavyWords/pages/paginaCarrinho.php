@@ -98,6 +98,7 @@ $result = $conn->query($sql);
     <?php endif; ?>
     <br>
     <a href="index.php">Voltar</a>
+    <?php include '../components/rodape.php'; ?>
 </body>
 </html>
 <?php $conn->close(); ?>

@@ -2,6 +2,11 @@
 session_start();
 include_once '../backend/conexaoCliente.php';
 
+// Paginação
+$por_pagina = 16;
+$pagina = isset($_GET['pagina']) && is_numeric($_GET['pagina']) && $_GET['pagina'] > 0 ? intval($_GET['pagina']) : 1;
+$offset = ($pagina - 1) * $por_pagina;
+
 // Filtros dinâmicos
 $where = ["ativo = 1"];
 $params = [];
@@ -31,7 +36,23 @@ if (!empty($_GET['ordem']) && is_array($_GET['ordem'])) {
     }
     if ($ordens) $order = implode(', ', $ordens);
 }
-$sql = "SELECT id, nome, preco, imagem_url FROM produtos WHERE " . implode(' AND ', $where) . " ORDER BY $order";
+
+// Consulta para total de resultados
+$sql_total = "SELECT COUNT(*) as total FROM produtos WHERE " . implode(' AND ', $where);
+$stmt_total = $conn->prepare($sql_total);
+$types_total = str_repeat('s', count($params));
+if ($params) {
+    $stmt_total->bind_param($types_total, ...$params);
+}
+$stmt_total->execute();
+$res_total = $stmt_total->get_result();
+$total_registros = $res_total->fetch_assoc()['total'];
+$stmt_total->close();
+
+$total_paginas = ceil($total_registros / $por_pagina);
+
+// Consulta paginada
+$sql = "SELECT id, nome, preco, imagem_url FROM produtos WHERE " . implode(' AND ', $where) . " ORDER BY $order LIMIT $por_pagina OFFSET $offset";
 $stmt = $conn->prepare($sql);
 $types = str_repeat('s', count($params));
 if ($params) {
@@ -46,6 +67,7 @@ $acessorios = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessórios</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
     <script>
     function adicionarCarrinho(produtoId) {
         var xhr = new XMLHttpRequest();
@@ -67,27 +89,63 @@ $acessorios = $stmt->get_result();
 <body>
     <?php include '../components/topoCliente.php'; ?>
     <?php include '../components/navBar.php'; ?>
-    <h2>Acessórios</h2>
-    <?php include '../components/filtroCliente.php'; ?>
-    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
-        <?php if ($acessorios && $acessorios->num_rows > 0): ?>
-            <?php while($p = $acessorios->fetch_assoc()): ?>
-                <div style="border:1px solid #ccc; padding:16px; width:200px; cursor:pointer;">
-                    <?php if (!empty($p['imagem_url'])): ?>
-                        <a href="paginaProduto.php?id=<?php echo $p['id']; ?>" style="text-decoration:none;color:inherit;">
-                        <img src="../../AdminHeavyWords/<?php echo $p['imagem_url']; ?>" alt="<?php echo htmlspecialchars($p['nome']); ?>" style="max-width:100%;max-height:120px;display:block;margin-bottom:8px;">
-                        </a>
-                    <?php endif; ?>
-                    <h3><?php echo htmlspecialchars($p['nome']); ?></h3>
-                    <p>Preço: R$ <?php echo number_format($p['preco'], 2, ',', '.'); ?></p>
-                    <button type="button" onclick="window.location.href='<?php echo isset($_SESSION['cliente_id']) ? 'comprar.php?id=' . $p['id'] : 'loginCliente.php?add_carrinho=' . $p['id']; ?>'">Comprar</button>
-                    <button type="button" onclick="adicionarCarrinho(<?php echo $p['id']; ?>)">Adicionar ao carrinho</button>
+    <div class="produtos_container">
+        <div class="produtos_filtro">
+            <?php include '../components/filtroCliente.php'; ?>
+        </div>
+        <div class="section_produtos">
+            <h2>Acessórios</h2>
+            <?php if ($acessorios && $acessorios->num_rows > 0): ?>
+                <div class="grid_produtos">
+                    <?php while($p = $acessorios->fetch_assoc()): ?>
+                        <div class="card_produto">
+                            <div class="card_produto_imagem">
+                                <?php if (!empty($p['imagem_url'])): ?>
+                                    <a href="paginaProduto.php?id=<?php echo $p['id']; ?>">
+                                        <img src="../../AdminHeavyWords/<?php echo $p['imagem_url']; ?>" alt="<?php echo htmlspecialchars($p['nome']); ?>">
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <div class="card_produto_nome">
+                                <h3><?php echo htmlspecialchars($p['nome']); ?></h3>
+                            </div>
+                            <div class="card_produto_preco">
+                                <p>R$ <?php echo number_format($p['preco'], 2, ',', '.'); ?></p>
+                            </div>
+                            <div class="card_btns">
+                                <button class="btn_comprar" type="button" onclick="window.location.href='<?php echo isset($_SESSION['cliente_id']) ? 'comprar.php?id=' . $p['id'] : 'loginCliente.php?add_carrinho=' . $p['id']; ?>'">Comprar</button>
+                                <button class="btn_adicionar" type="button" onclick="adicionarCarrinho(<?php echo $p['id']; ?>)">Carrinho</button>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>Nenhum acessório encontrado.</p>
-        <?php endif; ?>
+                <!-- Paginação -->
+                <div class="paginacao_produtos">
+                    <?php for ($i = 1; $i <= $total_paginas; $i++): ?>
+                        <form method="get" style="display:inline;">
+                            <?php
+                            foreach ($_GET as $key => $value) {
+                                if ($key === 'pagina') continue;
+                                if (is_array($value)) {
+                                    foreach ($value as $v) {
+                                        echo '<input type="hidden" name="' . htmlspecialchars($key) . '[]" value="' . htmlspecialchars($v) . '">';
+                                    }
+                                } else {
+                                    echo '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($value) . '">';
+                                }
+                            }
+                            ?>
+                            <input type="hidden" name="pagina" value="<?php echo $i; ?>">
+                            <button type="submit" class="btn_paginacao<?php echo $i == $pagina ? ' ativo' : ''; ?>"><?php echo $i; ?></button>
+                        </form>
+                    <?php endfor; ?>
+                </div>
+            <?php else: ?>
+                <p>Nenhum acessório encontrado.</p>
+            <?php endif; ?>
+        </div>
     </div>
+    <?php include '../components/rodape.php'; ?>
 </body>
 </html>
 <?php $stmt->close(); $conn->close(); ?>

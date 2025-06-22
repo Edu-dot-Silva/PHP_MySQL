@@ -1,0 +1,81 @@
+.filtro_form {
+    /* background-color: pink; removido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Quicksand", sans-serif;
+    border-right: 2px solid var(--segunda_cor);
+    gap: 12px;
+}
+
+
+.filtro_form label select {
+    display: block;
+}
+
+.filtro_ordem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.filtro_ordem label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    min-height: 28px;
+    width: 180px; /* largura fixa para todos os labels, ajuste se necessário */
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.filtro_ordem label span {
+    transition: font-weight 0.1s;
+    width: 100%;
+    display: inline-block;
+}
+
+.filtro_form input[type="text"],
+.filtro_form select {
+    width: 150px;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--segunda_cor);
+    font-family: "Quicksand", sans-serif;
+
+}
+
+.filtro_form button {
+    font-family: "Quicksand", sans-serif;
+}
+
+.filtro_ordem label input[type="checkbox"]:checked + span,
+.filtro_ordem label input[type="checkbox"]:checked {
+    font-weight: bold;
+}
+
+/* Para garantir que o texto fique bold quando o checkbox estiver marcado */
+.filtro_ordem label input[type="checkbox"]:checked + span,
+.filtro_ordem label input[type="checkbox"]:checked ~ span {
+    font-weight: bold;
+}
+
+/* Alternativa para browsers que não suportam :has() */
+.filtro_ordem label input[type="checkbox"]:checked + span,
+.filtro_ordem label input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+.filtro_ordem > span {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-bottom: 4px;
+}

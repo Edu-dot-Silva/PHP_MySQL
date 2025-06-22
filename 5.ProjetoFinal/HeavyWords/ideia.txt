@@ -1,16 +1,9 @@
-A Heavy Words nasceu da estrada, do barulho das caixas, da poeira dos festivais e do cheiro de vinil antigo. Seu fundador, um eterno apaixonado pelo peso das guitarras e a poesia da rebeldia, percorreu incontáveis shows pelo Brasil e pelo mundo — de pequenos bares abafados a palcos colossais de festivais lendários. Foi nesses caminhos que ele entendeu que o rock não é apenas um som: é um modo de existir, uma voz que se recusa a calar.
+Features:
 
-Mais do que uma livraria, somos um refúgio para quem vive o rock de corpo e alma. Nossos livros contam as histórias que não cabem nos bastidores, nossos vinis e CDs trazem de volta o chiado da emoção real, e nossos acessórios são declarações visuais de atitude. Cada item no nosso catálogo é escolhido com a convicção de que o rock não é nostalgia — é presença. É resistência. É arte viva.
-
-Na Heavy Words, mantemos o espírito do rock aceso todos os dias — com papel, som e expressão. Porque o rock pode mudar de forma, pode sair dos grandes palcos, pode até não tocar no rádio… mas nunca morre. E enquanto houver alguém disposto a sentir isso na pele, estaremos aqui. Com você. Pela palavra. Pelo barulho. Pela eternidade do rock.
-
-
-Features
 exportar o csv da tabela toda no administrativo
-Campo de pesquisa que leva para pagina com tudo relacionado ao que foi pesquisado
-
-pensar como manipular o campo tipo no filtro
 
 se o estoque estiver igual a 0 nao mostrar botao de adicionar ao carrinho e comprar ao inves mostrar a mensagem de esgotado
 
 alerta de item adicionado ao carrinho
+
+integrar API de CEP para dados de entrega na finalização do pedido

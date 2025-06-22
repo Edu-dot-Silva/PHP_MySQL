@@ -50,6 +50,7 @@ $produto = $result->fetch_assoc();
     <button type="button" onclick="adicionarCarrinho(<?php echo $produto['id']; ?>)">Adicionar ao carrinho</button>
     <br>
     <a href="index.php">Voltar</a>
+    <?php include '../components/rodape.php'; ?>
 </body>
 </html>
 <?php $conn->close(); ?>

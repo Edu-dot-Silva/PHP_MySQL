@@ -1,0 +1,112 @@
+:root {
+    --primeira_cor: #fcfcfc;
+    --segunda_cor: #000000;
+    --terceira_cor: #1e1e1e;
+    --quarta_cor: #3c3c3c;
+    --quinta_cor: #5b5b5b;
+}
+
+.cabecalho {
+    background-color: var(--primeira_cor);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px;
+}
+
+.cabecalho div{
+    margin: 6px;
+}
+.cabecalho .logo_cabecalho {
+    width: 250px;
+    height: 250px;
+}
+
+
+.cabecalho > div {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.cabecalho > div:nth-child(2) {
+    justify-content: center;
+}
+
+.cabecalho > div:last-child {
+    justify-content: flex-end;
+}
+
+.sair_icon{
+    background-image: url("../img/icons/cabecalho-icons/exit.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.sair_icon:hover{
+    transform: scale(0.9);
+}
+
+.carrinho_icon{
+    background-image: url("../img/icons/cabecalho-icons/carrinho.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+}
+
+.carrinho_icon:hover{
+    transform: scale(0.9);
+}
+
+.usuario_icon{
+    background-image: url("../img/icons/cabecalho-icons/user.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+}
+
+.usuario_icon:hover{
+    transform: scale(0.9);
+}
+
+.btn_login{
+    padding: 6px;
+    cursor: pointer;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    transition: all 0.1s ease-in-out;
+    font-size: 16px;
+}
+
+.btn_login:hover{
+    background-color: var(--quinta_cor);
+    transform: scale(0.9);
+}

@@ -1,8 +1,9 @@
-<nav style="margin-bottom: 24px;">
-    <a href="index.php" style="margin-right:16px;">Home</a>
-    <a href="paginaLivros.php" style="margin-right:16px;">Livros</a>
-    <a href="paginaVinil.php" style="margin-right:16px;">Vinil</a>
-    <a href="paginaCds.php" style="margin-right:16px;">CDs</a>
-    <a href="paginaAcessorios.php" style="margin-right:16px;">Acessórios</a>
+<link rel="stylesheet" href="../assets/css/nav_bar.css">
+<nav class="nav-bar">
+    <a href="index.php">Home</a>
+    <a href="paginaLivros.php">Livros</a>
+    <a href="paginaVinil.php">Vinil</a>
+    <a href="paginaCds.php">CDs</a>
+    <a href="paginaAcessorios.php">Acessórios</a>
     <a href="sobreNos.php">Sobre Nós</a>
 </nav>

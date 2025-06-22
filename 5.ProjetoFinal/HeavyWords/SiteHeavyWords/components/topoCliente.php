@@ -15,18 +15,28 @@ if (isset($_SESSION['cliente_id'])) {
     }
 }
 ?>
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+<link rel="stylesheet" href="../assets/css/cabecalho.css">
+<div class="cabecalho">
     <div>
-        <?php if (!isset($_SESSION['cliente_id'])): ?>
-            <a href="loginCliente.php"><button>Login/Cadastro</button></a>
-        <?php else: ?>
-            <button><?php echo htmlspecialchars($cliente_nome); ?></button>
-            <a href="../backend/sairCliente.php" style="margin-left:10px;color:red;text-decoration:none;font-weight:bold;">Sair</a>
-        <?php endif; ?>
     </div>
     <div>
-        <a href="<?php echo isset($_SESSION['cliente_id']) ? 'paginaCarrinho.php' : 'loginCliente.php'; ?>" style="text-decoration:none;">
-            <span style="font-size:18px;">Carrinho (<span id="carrinhoQtd"><?php echo $carrinho_qtd; ?></span>)</span>
-        </a>
+        <img src="../assets/img/logo.png" alt="Logo Heavy Words" class="logo_cabecalho">
+    </div>
+    <div>
+        <?php if (!isset($_SESSION['cliente_id'])): ?>
+            <?php if (basename($_SERVER['PHP_SELF']) !== 'loginCliente.php'): ?>
+                <a href="loginCliente.php"><button class="btn_login">Login/Cadastro</button></a>
+            <?php endif; ?>
+        <?php else: ?>
+            <span>
+                <!-- feature futura: esse botao leva pra uma pagina que mostra infomracoes do cliente, ultimos pedidos, etc -->
+                 <!-- depois fazer destinção de nome e sobrenome do cliente para exibir apenas o primeiro nome -->
+                <button class="usuario_icon"></button><?php echo htmlspecialchars($cliente_nome); ?>
+                <a href="paginaCarrinho.php" style="text-decoration:none;">
+                    <button class="carrinho_icon"></button>(<span id="carrinhoQtd"><?php echo $carrinho_qtd; ?></span>)
+                </a>
+            </span>
+            <a href="../backend/sairCliente.php"><button class="sair_icon"></button></a>
+        <?php endif; ?>
     </div>
 </div>
