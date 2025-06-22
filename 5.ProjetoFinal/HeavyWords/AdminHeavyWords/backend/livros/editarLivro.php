@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Salvar</button>
     </form>
     <br>
-    <a href="../pages/listaLivros.php">Voltar para lista</a>
+    <a href="../../pages/listaLivros.php">Voltar para lista</a>
 </body>
 </html>
 <?php $conn->close(); ?>

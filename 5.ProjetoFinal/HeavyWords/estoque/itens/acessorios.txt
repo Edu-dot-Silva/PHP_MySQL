@@ -1,6 +1,5 @@
 | Nome                              | Descrição                                                               | Preço (R\$) | Banda                    | Tipo               |
 | --------------------------------- | ----------------------------------------------------------------------- | ----------- | ------------------------ | ------------------ |
-| Camiseta Sepultura                | Camiseta oficial da banda Sepultura. Item exclusivo para fãs.           | 72,88       | Sepultura                | Camiseta           |
 | Caneca Mudvayne                   | Caneca oficial da banda Mudvayne. Item exclusivo para fãs.              | 45,23       | Mudvayne                 | Caneca             |
 | Chaveiro Disturbed                | Chaveiro oficial da banda Disturbed. Item exclusivo para fãs.           | 83,35       | Disturbed                | Chaveiro           |
 | Patch Orbit Culture               | Patch oficial da banda Orbit Culture. Item exclusivo para fãs.          | 99,70       | Orbit Culture            | Patch              |

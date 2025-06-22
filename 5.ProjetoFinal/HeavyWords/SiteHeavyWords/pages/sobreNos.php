@@ -6,6 +6,8 @@
     <title>Sobre Nós</title>
 </head>
 <body>
+    <?php include '../components/topoCliente.php'; ?>
+    <?php include '../components/navBar.php'; ?>
     <h1>Sobre nos</h1>
 </body>
 </html>
