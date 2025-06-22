@@ -92,7 +92,7 @@ $livros = $stmt->get_result();
                 <div style="border:1px solid #ccc; padding:16px; width:200px; cursor:pointer;">
                     <?php if (!empty($p['imagem_url'])): ?>
                         <a href="paginaProduto.php?id=<?php echo $p['id']; ?>" style="text-decoration:none;color:inherit;">
-                        <img src="../../AdminHeavyWords/<?php echo $p['imagem_url']; ?>" alt="<?php echo htmlspecialchars($p['nome']); ?>" style="max-width:100%;max-height:120px;display:block;margin-bottom:8px;">
+                        <img src="../../AdminHeavyWords/assets/img/produtos/livro/<?php echo basename($p['imagem_url']); ?>" alt="<?php echo htmlspecialchars($p['nome']); ?>" style="max-width:100%;max-height:120px;display:block;margin-bottom:8px;">
                         </a>
                     <?php endif; ?>
                     <h3><?php echo htmlspecialchars($p['nome']); ?></h3>

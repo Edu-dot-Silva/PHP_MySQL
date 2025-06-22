@@ -1,7 +1,8 @@
 <?php
 session_start();
 include_once '../backend/conexaoCliente.php';
-$mais_vendidos = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND vendidos > 0 ORDER BY vendidos DESC LIMIT 6");
+// Mais vendidos: 6 itens com maior vendidos
+$mais_vendidos = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND vendidos > 0 ORDER BY vendidos DESC, id DESC LIMIT 6");
 // Contador do carrinho
 $carrinho_qtd = 0;
 $cliente_nome = '';
@@ -67,8 +68,7 @@ if (isset($_SESSION['cliente_id'])) {
     <h2>Promoção</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px;">
         <?php
-        // Altere para pegar produtos com preco <= 30
-        $promocoes = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND preco <= 30");
+        $promocoes = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 AND preco <= 50");
         $produtosPromo = [];
         if ($promocoes && $promocoes->num_rows > 0) {
             while($p = $promocoes->fetch_assoc()) {
@@ -97,7 +97,7 @@ if (isset($_SESSION['cliente_id'])) {
     <h2 style="margin-top:32px;">Novidades</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px;">
         <?php
-        $novidades = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 ORDER BY criado_em DESC, id DESC LIMIT 4");
+        $novidades = $conn->query("SELECT id, nome, preco, imagem_url FROM produtos WHERE ativo = 1 ORDER BY criado_em DESC, id DESC LIMIT 6");
         if ($novidades && $novidades->num_rows > 0):
             while($p = $novidades->fetch_assoc()): ?>
                 <div style="border:1px solid #ccc; padding:16px; width:200px; cursor:pointer;">
@@ -111,7 +111,7 @@ if (isset($_SESSION['cliente_id'])) {
                     <button type="button" onclick="window.location.href='<?php echo isset($_SESSION['cliente_id']) ? 'comprar.php?id=' . $p['id'] : 'loginCliente.php?add_carrinho=' . $p['id']; ?>'">Comprar</button>
                     <button type="button" onclick="adicionarCarrinho(<?php echo $p['id']; ?>)">Adicionar ao carrinho</button>
                 </div>
-            <?php endwhile;
+        <?php endwhile;
         else: ?>
             <p>Nenhum produto novo cadastrado.</p>
         <?php endif; ?>
