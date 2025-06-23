@@ -1,5 +1,4 @@
 .filtro_form {
-    /* background-color: pink; removido */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +27,7 @@
     gap: 6px;
     font-size: 16px;
     min-height: 28px;
-    width: 180px; /* largura fixa para todos os labels, ajuste se necessário */
+    width: 180px;
     box-sizing: border-box;
     text-align: justify;
 }
@@ -49,11 +48,26 @@
     border: none;
     border-bottom: 1px solid var(--segunda_cor);
     font-family: "Quicksand", sans-serif;
-
+    font-size: 16px;
+    outline: none;
 }
 
 .filtro_form button {
     font-family: "Quicksand", sans-serif;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
+
+.filtro_form button:hover {
+    background-color: var(--quinta_cor);
+    color: var(--primeira_cor);
+    transform: scale(1.1);
 }
 
 .filtro_ordem label input[type="checkbox"]:checked + span,
@@ -61,7 +75,6 @@
     font-weight: bold;
 }
 
-/* Para garantir que o texto fique bold quando o checkbox estiver marcado */
 .filtro_ordem label input[type="checkbox"]:checked + span,
 .filtro_ordem label input[type="checkbox"]:checked ~ span {
     font-weight: bold;

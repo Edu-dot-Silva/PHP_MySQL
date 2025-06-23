@@ -1,0 +1,122 @@
+.section_btnVoltar {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.section_btnVoltar img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.section_carrinho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.carrinho{
+}
+
+.carrinho table {
+    width: 800px;
+    max-width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.carrinho tr {
+    height: 56px;
+    border-bottom: 1px solid var(--quinta_cor);
+}
+
+.carrinho th, .carrinho td {
+    padding: 12px 8px;
+    text-align: right;
+    word-break: break-word;
+}
+
+
+.carrinho tr:last-child {
+    border-bottom: none;
+}
+
+.section_btn_carrinho {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 12px;
+}
+
+.section_btn_carrinho .btn_continuar {
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
+
+.section_btn_carrinho .btn_continuar:hover {
+    background-color: var(--quinta_cor);
+    color: var(--primeira_cor);
+}
+
+.section_btn_carrinho .btn_finalizar {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
+
+.section_btn_carrinho .btn_finalizar:hover {
+    background-color: #219150;
+    color: #fff;
+}
+
+.qtd_carrinho{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 50px;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    border-bottom: 1px solid var(--segunda_cor);
+}
+
+.excluir_carrinho{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--segunda_cor);
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    transition: color 0.1s ease-in-out;
+}
+
+.excluir_carrinho img{
+    width: 24px;
+    height: 24px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.excluir_carrinho:hover img{
+    transform: scale(1.1);
+}

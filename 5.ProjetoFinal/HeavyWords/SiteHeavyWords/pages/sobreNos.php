@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/sobreNos.css">
 </head>
 <body>
     <?php include '../components/topoCliente.php'; ?>
     <?php include '../components/navBar.php'; ?>
-    <link rel="stylesheet" href="../assets/css/index.css">
     <h1>Sobre nos</h1>
 
     <p>A Heavy Words nasceu da estrada, do barulho das caixas, da poeira dos festivais e do cheiro de vinil antigo. Seu fundador, um eterno apaixonado pelo peso das guitarras e a poesia da rebeldia, percorreu incontáveis shows pelo Brasil e pelo mundo — de pequenos bares abafados a palcos colossais de festivais lendários. Foi nesses caminhos que ele entendeu que o rock não é apenas um som: é um modo de existir, uma voz que se recusa a calar.</p>

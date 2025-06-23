@@ -29,12 +29,14 @@ if (isset($_SESSION['cliente_id'])) {
             <?php endif; ?>
         <?php else: ?>
             <span>
-                <!-- feature futura: esse botao leva pra uma pagina que mostra infomracoes do cliente, ultimos pedidos, etc -->
-                 <!-- depois fazer destinção de nome e sobrenome do cliente para exibir apenas o primeiro nome -->
                 <button class="usuario_icon"></button><?php echo htmlspecialchars($cliente_nome); ?>
-                <a href="paginaCarrinho.php" style="text-decoration:none;">
-                    <button class="carrinho_icon"></button>(<span id="carrinhoQtd"><?php echo $carrinho_qtd; ?></span>)
-                </a>
+                <?php
+                $pagina_atual = basename($_SERVER['PHP_SELF']);
+                if ($pagina_atual !== 'paginaCarrinho.php' && $pagina_atual !== 'finalizaCompraCliente.php'): ?>
+                    <a href="paginaCarrinho.php" style="text-decoration:none;">
+                        <button class="carrinho_icon"></button>(<span id="carrinhoQtd"><?php echo $carrinho_qtd; ?></span>)
+                    </a>
+                <?php endif; ?>
             </span>
             <a href="../backend/sairCliente.php"><button class="sair_icon"></button></a>
         <?php endif; ?>

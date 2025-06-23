@@ -18,7 +18,9 @@ $result = $conn->query($sql);
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Seu carrinho, <?php echo htmlspecialchars($cliente_nome); ?></title>
+    <title>Heavy Words - Seu carrinho</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/paginaCarrinho.css">
     <script>
     function atualizarQuantidade(itemId, input) {
         var novaQtd = parseInt(input.value);
@@ -56,16 +58,36 @@ $result = $conn->query($sql);
     </script>
 </head>
 <body>
+    <?php include '../components/topoCliente.php'; ?>
+    <?php include '../components/navBar.php'; ?>
+    <?php
+    $voltar_url = 'index.php';
+    if (!empty($_SERVER['HTTP_REFERER'])) {
+        $referer = $_SERVER['HTTP_REFERER'];
+        if (strpos($referer, 'paginaCarrinho.php') === false) {
+            $voltar_url = $referer;
+        }
+    }
+    ?>
+    <div class="section_btnVoltar">
+        <a href="<?php echo htmlspecialchars($voltar_url); ?>">
+            <img src="../assets/img/icons/cabecalho-icons/back.png" alt="">
+        </a>
+    </div>
     <h2>Seu carrinho, <?php echo htmlspecialchars($cliente_nome); ?></h2>
-    <?php if ($result && $result->num_rows > 0): ?>
-        <table border="1" cellpadding="8">
-            <tr>
-                <th>Imagem</th>
+
+    <div class="section_carrinho">
+        <div class="carrinho">
+
+        <?php if ($result && $result->num_rows > 0): ?>
+            <table>
+                <tr>
+                <th></th>
                 <th>Nome</th>
                 <th>Quantidade</th>
                 <th>Preço Unitário</th>
                 <th>Total</th>
-                <th>Ações</th>
+                <th></th>
             </tr>
             <?php $total = 0; ?>
             <?php while($item = $result->fetch_assoc()): ?>
@@ -77,11 +99,11 @@ $result = $conn->query($sql);
                     </td>
                     <td><?php echo htmlspecialchars($item['nome']); ?></td>
                     <td>
-                        <input type="number" min="1" value="<?php echo $item['quantidade']; ?>" style="width:50px;" onchange="atualizarQuantidade(<?php echo $item['id']; ?>, this)">
+                        <input type="number" class="qtd_carrinho" min="1" value="<?php echo $item['quantidade']; ?>" onchange="atualizarQuantidade(<?php echo $item['id']; ?>, this)">
                     </td>
                     <td>R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></td>
                     <td id="totalItem_<?php echo $item['id']; ?>">R$ <?php echo number_format($item['preco'] * $item['quantidade'], 2, ',', '.'); ?></td>
-                    <td><button onclick="excluirItem(<?php echo $item['id']; ?>)">Excluir</button></td>
+                    <td><button class="excluir_carrinho" onclick="excluirItem(<?php echo $item['id']; ?>)"><img src="../assets/img/icons/cabecalho-icons/trash.png" class="icon_excluir_carrinho" alt=""></button></td>
                 </tr>
                 <?php $total += $item['preco'] * $item['quantidade']; ?>
             <?php endwhile; ?>
@@ -91,13 +113,25 @@ $result = $conn->query($sql);
             </tr>
         </table>
         <br>
-        <button onclick="window.location.href='index.php'">Continuar comprando</button>
-        <button onclick="window.location.href='finalizaCompraCliente.php'">Finalizar compra</button>
+        <div class="section_btn_carrinho">
+        <?php
+        $continuar_url = 'index.php';
+        if (!empty($_SERVER['HTTP_REFERER'])) {
+            $referer = $_SERVER['HTTP_REFERER'];
+            if (strpos($referer, 'paginaCarrinho.php') === false) {
+                $continuar_url = $referer;
+            }
+        }
+        ?>
+        <button class="btn_continuar" onclick="window.location.href='<?php echo htmlspecialchars($continuar_url); ?>'">Continuar comprando</button>
+        <button class="btn_finalizar" onclick="window.location.href='finalizaCompraCliente.php'">Finalizar compra</button>
+    </div>
     <?php else: ?>
         <p>Seu carrinho está vazio.</p>
     <?php endif; ?>
+    </div>
+    </div>
     <br>
-    <a href="index.php">Voltar</a>
     <?php include '../components/rodape.php'; ?>
 </body>
 </html>

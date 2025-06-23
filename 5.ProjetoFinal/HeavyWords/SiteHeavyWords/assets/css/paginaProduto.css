@@ -1,0 +1,132 @@
+.section_btnVoltar {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.section_btnVoltar img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.section_btnVoltar img:hover {
+    transform: scale(1.1);
+}
+
+.section_btnVoltar a {
+    text-decoration: none;
+}
+
+.section_produto {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.produto_infos {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.produto_infos img {
+    max-width: 500px;
+    max-height: 600px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.informacoes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.detalhes_produto {
+    height: 350px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    text-align: left;
+}
+
+.detalhes_produto h1 {
+    text-align: center;
+    padding: 12px;
+}
+
+.detalhes_produto p {
+    margin-left: 12px;
+    font-size: 18px;
+    line-height: 2.1;
+}
+
+.detalhes_produto p.preco-destaque {
+    font-size: 2.2rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.produto_btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    margin-left: 12px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.produto_btns .btn_comprar {
+    width: 150px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
+
+.produto_btns .btn_comprar:hover {
+    background-color: #219150;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.produto_btns .btn_adicionar {
+    width: 150px;
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
+
+.produto_btns .btn_adicionar:hover {
+    background-color: var(--quinta_cor);
+    color: var(--primeira_cor);
+    transform: scale(1.1);
+}
