@@ -61,39 +61,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cadastrar'])) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Login/Cadastro Cliente</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/loginCliente.css">
 </head>
+
 <body>
     <?php include_once '../components/topoCliente.php'; ?>
-    <h2>Login</h2>
-    <?php if ($msg_login) echo '<p style="color:red">' . $msg_login . '</p>'; ?>
-    <form method="POST">
-        <input type="hidden" name="login" value="1">
-        <label for="email_login">Email:</label>
-        <input type="email" id="email_login" name="email_login" required><br><br>
-        <label for="senha_login">Senha:</label>
-        <input type="password" id="senha_login" name="senha_login" required><br><br>
-        <button type="submit">Entrar</button>
-    </form>
-    <hr>
-    <h2>Cadastro</h2>
-    <?php if ($msg_cadastro) echo '<p style="color:red">' . $msg_cadastro . '</p>'; ?>
-    <form method="POST">
-        <input type="hidden" name="cadastrar" value="1">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required><br><br>
-        <label for="senha2">Confirmar Senha:</label>
-        <input type="password" id="senha2" name="senha2" required><br><br>
-        <button type="submit">Cadastrar</button>
-    </form>
+    <?php include_once '../components/navBar.php'; ?>
+    <?php $voltar_url = 'index.php';
+    if (!empty($_SERVER['HTTP_REFERER'])) {
+        $referer = $_SERVER['HTTP_REFERER'];
+        if (strpos($referer, 'paginaProduto.php') === false) {
+            $voltar_url = $referer;
+        }
+    }
+    ?>
+    <div class="section_btnVoltar">
+        <a href="<?php echo htmlspecialchars($voltar_url); ?>"><img src="../assets/img/icons/cabecalho-icons/back.png" alt=""></a>
+    </div>
+    <div class="pag_section">
+        <div class="login_section">
+            <h2>Login</h2>
+            <?php if ($msg_login) echo '<p style="color:red">' . $msg_login . '</p>'; ?>
+            <form method="POST">
+                <input type="hidden" name="login" value="1">
+                <label for="email_login">Email:</label>
+                <input class="input_login input_email" type="email" id="email_login" name="email_login" required><br><br>
+                <label for="senha_login">Senha:</label>
+                <input class="input_login input_senha" type="password" id="senha_login" name="senha_login" required><br><br>
+                <button class="btn_login btn_entrar" type="submit">Entrar</button>
+            </form>
+        </div>
+        <div class="cadastro_section">
+            <h2>Cadastro</h2>
+            <?php if ($msg_cadastro) echo '<p style="color:red">' . $msg_cadastro . '</p>'; ?>
+            <form method="POST">
+                <input type="hidden" name="cadastrar" value="1">
+                <label for="nome">Nome:</label>
+                <input class="input_login input_nome" type="text" id="nome" name="nome" required><br><br>
+                <label for="email">Email:</label>
+                <input class="input_login input_email" type="email" id="email" name="email" required><br><br>
+                <label for="senha">Senha:</label>
+                <input class="input_login input_senha" type="password" id="senha" name="senha" required><br><br>
+                <label for="senha2">Confirmar Senha:</label>
+                <input class="input_login input_senha" type="password" id="senha2" name="senha2" required><br><br>
+                <button class="btn_login btn_cadastro" type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
     <br>
-    <a href="index.php">Voltar</a>
 </body>
+
 </html>
 <?php $conn->close(); ?>

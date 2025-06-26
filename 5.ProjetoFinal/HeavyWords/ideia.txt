@@ -7,3 +7,7 @@ se o estoque estiver igual a 0 nao mostrar botao de adicionar ao carrinho e comp
 alerta de item adicionado ao carrinho
 
 integrar API de CEP para dados de entrega na finalização do pedido
+
+pagina do produto fazer section de produtos relacionados que serao produtos com a mesma categoria
+
+arrumar texto na pagina de finalizar compra

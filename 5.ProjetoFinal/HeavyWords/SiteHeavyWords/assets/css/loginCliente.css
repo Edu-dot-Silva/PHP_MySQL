@@ -1,0 +1,77 @@
+:root {
+    --primeira_cor: #fcfcfc;
+    --segunda_cor: #000000;
+    --terceira_cor: #1e1e1e;
+    --quarta_cor: #3c3c3c;
+    --quinta_cor: #5b5b5b;
+}
+
+body{
+
+}
+
+.pag_section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 12px;
+}
+
+.login_section{
+    width: 50%;
+    border-right: 1px solid var(--segunda_cor);
+    display: grid;
+    justify-content: left;
+    padding: 12px;
+    text-align: end;
+}
+.input_login{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--segunda_cor);
+    font-size: 18px;
+    font-family:"Quicksand", sans-serif;
+    width: 300px;
+    text-align: center;
+}
+
+.login_section h2{
+    margin: 8px;
+}
+
+.btn_login{
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cadastro_section{
+    width: 50%;
+    display: grid;
+    justify-content: left;
+    padding: 12px;
+    text-align: end;
+}
+
+.section_btnVoltar {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.section_btnVoltar img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
