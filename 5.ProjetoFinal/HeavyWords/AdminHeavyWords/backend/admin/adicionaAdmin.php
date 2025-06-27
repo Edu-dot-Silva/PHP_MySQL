@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Adicionar Administrador</title>
+    <link rel="stylesheet" href="../../assets/css/dash.css">
 </head>
 <body>
     <h2>Adicionar Administrador</h2>

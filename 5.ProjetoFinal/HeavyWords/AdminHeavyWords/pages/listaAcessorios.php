@@ -1,6 +1,6 @@
 <?php
 include_once '../backend/conexaoAdmin.php';
-// Buscar o id da categoria Acessórios
+// Buscar o id da categoria Acessórios (com e sem acento)
 $idAcessorios = null;
 $catResult = $conn->query("SELECT id FROM categorias WHERE LOWER(nome) = 'acessórios' OR LOWER(nome) = 'acessorios' LIMIT 1");
 if ($catResult && $catResult->num_rows > 0) {
@@ -16,59 +16,69 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Acessórios</title>
-        <link rel="stylesheet" href="../assets/css/dash.css">
-
+    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="../assets/css/lista.css">
 </head>
 <body>
-        <?php include_once '../components/topoAdm.php'; ?>
+    <?php include_once '../components/topoAdm.php'; ?>
     <?php include_once '../components/navBar.php'; ?>
 
-    <h2>Acessórios</h2>
-    <a href="../backend/acessorios/adicionarAcessorio.php">Adicionar Acessório</a>
-    <a href="dashAdmin.php">Voltar</a>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Estoque</th>
-            <th>Vendidos</th>
-            <th>Banda</th>
-            <th>Tipo</th>
-            <th>Ativo</th>
-            <th>Criado em</th>
-            <th>Ações</th>
-        </tr>
-        <?php if ($result && $result->num_rows > 0): ?>
-            <?php while($row = $result->fetch_assoc()): ?>
+    <div class="container-lista">
+        <h2>Acessórios</h2>
+        <a href="../backend/acessorios/adicionarAcessorio.php" class="btn_adicionar" style="text-decoration: none;">Adicionar Acessório</a>
+
+        <div class="container-tabela-wrapper">
+            <table>
                 <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nome']; ?></td>
-                    <td><?php echo $row['descricao']; ?></td>
-                    <td><?php echo $row['preco']; ?></td>
-                    <td><?php echo $row['estoque']; ?></td>
-                    <td><?php echo $row['vendidos']; ?></td>
-                    <td><?php echo $row['banda']; ?></td>
-                    <td><?php echo $row['tipo']; ?></td>
-                    <td><?php echo $row['ativo'] ? 'Sim' : 'Não'; ?></td>
-                    <td><?php echo $row['criado_em']; ?></td>
-                    <td>
-                        <form action="../backend/acessorios/editarAcessorio.php" method="GET" style="display:inline;">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <button type="submit">Editar</button>
-                        </form>
-                        <form action="../backend/acessorios/excluirAcessorio.php" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir?');">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <button type="submit">Excluir</button>
-                        </form>
-                    </td>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Vendidos</th>
+                    <th>Banda</th>
+                    <th>Tipo</th>
+                    <th>Ativo</th>
+                    <th>Criado em</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <tr><td colspan="11">Nenhum acessório cadastrado.</td></tr>
-        <?php endif; ?>
-    </table>
+                <?php if ($result && $result->num_rows > 0): ?>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo htmlspecialchars($row['nome']); ?></td>
+                            <td><?php echo htmlspecialchars($row['descricao']); ?></td>
+                            <td><?php echo number_format($row['preco'], 2, ',', '.'); ?></td>
+                            <td><?php echo $row['estoque']; ?></td>
+                            <td><?php echo $row['vendidos']; ?></td>
+                            <td><?php echo htmlspecialchars($row['banda']); ?></td>
+                            <td><?php echo htmlspecialchars($row['tipo']); ?></td>
+                            <td><?php echo $row['ativo'] ? 'Sim' : 'Não'; ?></td>
+                            <td><?php echo $row['criado_em']; ?></td>
+                            <td>
+                                <div class="acoes-btns">
+                                    <form action="../backend/acessorios/editarAcessorio.php" method="GET">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <button class="btn_admin btn_editar" type="submit">
+                                            <img src="../assets/img/icons/edit.png" alt="Editar">
+                                        </button>
+                                    </form>
+                                    <form action="../backend/acessorios/excluirAcessorio.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                        <button class="btn_admin btn_excluir" type="submit">
+                                            <img src="../assets/img/icons/trash.png" alt="Excluir">
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr><td colspan="11">Nenhum acessório cadastrado.</td></tr>
+                <?php endif; ?>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
 <?php $conn->close(); ?>

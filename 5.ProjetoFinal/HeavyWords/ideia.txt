@@ -1,8 +1,11 @@
-Features:
+Falta:
+finalizar css de adição e edição
+restruturar ordem da pagina de dash
 
+Features:
 exportar o csv da tabela toda no administrativo
 
-ao clicar na tabela abrir um csv com a tabela expandida no centro da tela
+ao clicar na tabela abrir um modal com a tabela expandida no centro da tela
 
 se o estoque estiver igual a 0 nao mostrar botao de adicionar ao carrinho e comprar ao inves mostrar a mensagem de esgotado
 
@@ -10,8 +13,8 @@ alerta de item adicionado ao carrinho
 
 integrar API de CEP para dados de entrega na finalização do pedido
 
-pagina do produto fazer section de produtos relacionados que serao produtos com a mesma categoria
+na pagina do produto fazer section de produtos relacionados que serao produtos com a mesma categoria de forma aleatoria
 
-arrumar texto na pagina de finalizar compra
+arrumar texto na pagina de finalizar compra com maxwidth
 
 campo de pesquisa em cada pagina de lista do admin
