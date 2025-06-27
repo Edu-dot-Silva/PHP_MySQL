@@ -16,8 +16,13 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Vinil</title>
+        <link rel="stylesheet" href="../assets/css/dash.css">
+
 </head>
 <body>
+        <?php include_once '../components/topoAdm.php'; ?>
+    <?php include_once '../components/navBar.php'; ?>
+
     <h2>Vinil</h2>
     <a href="../backend/vinil/adicionarVinil.php">Adicionar Vinil</a>
     <a href="dashAdmin.php">Voltar</a>

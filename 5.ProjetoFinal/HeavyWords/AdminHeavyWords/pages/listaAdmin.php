@@ -9,8 +9,12 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Administradores</title>
+    <link rel="stylesheet" href="../assets/css/dash.css">
 </head>
 <body>
+    <?php include_once '../components/topoAdm.php'; ?>
+        <?php include_once '../components/navBar.php'; ?>
+
     <h2>Administradores</h2>
     <a href="../backend/admin/adicionaAdmin.php">Adicionar Administrador</a>
     <a href="dashAdmin.php" style="margin-left:16px;">Voltar</a>

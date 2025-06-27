@@ -31,9 +31,12 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>HeavyWords - Admin</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
 </head>
 <body>
-    <h2>Login Administrador</h2>
+    <div class="login_adm">
+        <img src="../assets/img/logo.png" alt="">
+    <h2>Login</h2>
     <?php if (!empty($msg)) echo '<p style="color:red;">' . $msg . '</p>'; ?>
     <form method="POST">
         <label for="email">E-mail:</label>
@@ -42,5 +45,6 @@ $conn->close();
         <input type="password" id="senha" name="senha" required><br><br>
         <button type="submit">Entrar</button>
     </form>
+    </div>
 </body>
 </html>

@@ -16,8 +16,13 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Acessórios</title>
+        <link rel="stylesheet" href="../assets/css/dash.css">
+
 </head>
 <body>
+        <?php include_once '../components/topoAdm.php'; ?>
+    <?php include_once '../components/navBar.php'; ?>
+
     <h2>Acessórios</h2>
     <a href="../backend/acessorios/adicionarAcessorio.php">Adicionar Acessório</a>
     <a href="dashAdmin.php">Voltar</a>

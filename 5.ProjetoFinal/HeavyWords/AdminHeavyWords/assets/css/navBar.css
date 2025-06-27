@@ -1,0 +1,29 @@
+.nav-bar {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 24px;
+    font-size: 18px;
+    background-color: var(--primeira_cor);
+    font-family: "Quicksand", sans-serif;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: var(--segunda_cor);
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+    padding: 2px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.nav-bar a:hover {
+    color: var(--quinta_cor);
+    transform: scale(1.1);
+    border-bottom: 1px solid var(--segunda_cor);
+    font-weight: 700;
+}

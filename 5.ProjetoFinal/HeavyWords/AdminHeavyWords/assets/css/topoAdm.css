@@ -1,0 +1,55 @@
+.topo_adm {
+    background-color: var(--primeira_cor);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px;
+}
+
+.topo_adm > div {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    margin: 6px;
+}
+
+.topo_adm > div:nth-child(2) {
+    justify-content: center;
+}
+
+.topo_adm > div:last-child {
+    justify-content: flex-end;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.adm_icon, .adm_sair {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.adm_icon {
+    background-image: url("../img/icons/user.png");
+}
+
+.adm_sair {
+    background-image: url("../img/icons/exit.png");
+}
+
+.adm_icon:hover,
+.adm_sair:hover {
+    transform: scale(0.9);
+}
+
+.logo_cabecalho {
+    width: 250px;
+    height: 250px;
+}

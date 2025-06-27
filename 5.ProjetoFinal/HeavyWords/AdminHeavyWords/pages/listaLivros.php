@@ -16,8 +16,13 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Livros</title>
+        <link rel="stylesheet" href="../assets/css/dash.css">
+
 </head>
 <body>
+        <?php include_once '../components/topoAdm.php'; ?>
+    <?php include_once '../components/navBar.php'; ?>
+
     <h2>Livros</h2>
     <a href="../backend/livros/adicionaLivros.php">Adicionar Livros</a>
     <a href="dashAdmin.php">Voltar</a>

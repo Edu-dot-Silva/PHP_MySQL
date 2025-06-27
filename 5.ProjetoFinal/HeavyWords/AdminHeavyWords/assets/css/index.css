@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --primeira_cor: #fcfcfc;
+    --segunda_cor: #000000;
+    --terceira_cor: #1e1e1e;
+    --quarta_cor: #3c3c3c;
+    --quinta_cor: #5b5b5b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--primeira_cor);
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.login_adm {
+    background-color: var(--primeira_cor);
+    padding: 2rem;
+    /* border-radius: 10px; */
+    text-align: center;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+}
+
+.login_adm img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.login_adm h2 {
+    padding: 12px;
+}
+
+.login_adm input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: "Quicksand", sans-serif;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid var(--segunda_cor);
+    font-size: 16px;
+}
+
+.login_adm button{
+    background-color: var(--segunda_cor);
+    color: var(--primeira_cor);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold;
+    transition: background 0.1s, color 0.1s, transform 0.1s;
+}
