@@ -1,4 +1,4 @@
 login administrativo
 
-email: admin@admin.com.br
-senha: admin123
+email: eduardo@admin.com.br
+senha: abc123

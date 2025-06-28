@@ -18,3 +18,5 @@ na pagina do produto fazer section de produtos relacionados que serao produtos c
 arrumar texto na pagina de finalizar compra com maxwidth
 
 campo de pesquisa em cada pagina de lista do admin
+
+no admin é possiver ver o pedido com um botao de ver mais
